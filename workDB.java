@@ -18,21 +18,19 @@ public class workDB  {
         ResultSet rs = stmt.executeQuery("SELECT * from t_managestudent");
         //ResultSetMetaData rsmd = rs.getMetaData();
 
-        int columnCnt = rs.getMetaData().getColumnCount(); // 컬럼갯수
+        int columnCnt = rs.getMetaData().getColumnCount(); // 컬럼갯수(필요없음.)
 
-        for(int i = 1; i<= columnCnt; i++ ){
-            System.out.print(rs.getMetaData().getColumnName(i));
-            System.out.print(" ");
-        }
+       
+        System.out.printf("%-10s %-10s %-10s %-10s\n", "StudentName", "StudentAge","StudentPhone","StudentEmail");
 
-        System.out.println("");
         while(rs.next()){
-            for(int i = 1; i< columnCnt; i++) {
-
-                    System.out.println("   " + rs.getString(i) + "   ");
-
-            }
+            String st_name = rs.getString("StudentName");
+            String st_age = rs.getString("StudentAge");
+            String st_phone = rs.getString("StudentPhone");
+            String st_email = rs.getString("StudentEmail");
+            System.out.printf("%-10s %-12s %-12s %-10s\n", st_name, st_age,st_phone,st_email);
         }
+        
         rs.close();
         stmt.close();
         connection.close();
