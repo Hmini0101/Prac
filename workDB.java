@@ -5,7 +5,7 @@ import java.sql.*;
 public class workDB  {
     String url = "jdbc:mysql://localhost:3306/db_prac?serverTimezone=UTC";
     String userName = "root";
-    String password = "@gusals8";
+    String password = "뭘봐";
 
 
     public void listup() throws SQLException {
